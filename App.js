@@ -1,10 +1,15 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import AppLoading from "expo-app-loading";
+import getFonts from "./constants/Font";
 import api from "./api/api";
+import Home from "./Screen/Home";
+
 import("./ReactotronConfig").then(() => console.log("Reactotron Configured"));
 
 export default function App() {
+  const [fontLoading, setFontLoading] = useState(false);
   // useEffect(() => {
   //   const fetchData = async () => {
   //     api
@@ -18,19 +23,15 @@ export default function App() {
   //   };
   //   fetchData();
   // }, []);
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  if (fontLoading) {
+    return <Home />;
+  } else {
+    return (
+      <AppLoading
+        startAsync={getFonts}
+        onFinish={() => setFontLoading(true)}
+        onError={console.warn}
+      />
+    );
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
