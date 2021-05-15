@@ -17,8 +17,10 @@ export default function BottomTabNavigation() {
         inactiveTintColor: "#595959",
         showLabel: false,
         style: {
-          padding: 5,
-          margin: 10,
+          marginLeft: 10,
+          marginRight: 10,
+          marginBottom: 10,
+          marginTop: 5,
           backgroundColor: "#f0f0f0",
           borderRadius: 30,
         },
