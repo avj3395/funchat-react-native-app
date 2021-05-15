@@ -5,6 +5,7 @@ import AppLoading from "expo-app-loading";
 import getFonts from "./constants/Font";
 import api from "./api/api";
 import Home from "./Screen/Home";
+import Navigation from "./Navigation";
 
 import("./ReactotronConfig").then(() => console.log("Reactotron Configured"));
 
@@ -24,7 +25,7 @@ export default function App() {
   //   fetchData();
   // }, []);
   if (fontLoading) {
-    return <Home />;
+    return <Navigation />;
   } else {
     return (
       <AppLoading
