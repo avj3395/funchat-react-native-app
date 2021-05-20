@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -17,12 +17,13 @@ export default function BottomTabNavigation() {
         inactiveTintColor: "#595959",
         showLabel: false,
         style: {
-          marginLeft: 10,
-          marginRight: 10,
-          marginBottom: 10,
-          marginTop: 5,
           backgroundColor: "#f0f0f0",
           borderRadius: 30,
+          position: "absolute",
+          bottom: 20,
+          left: 10,
+          right: 10,
+          ...styles.bottomNavStyle,
         },
       }}
     >
@@ -57,3 +58,16 @@ export default function BottomTabNavigation() {
     </BottomTab.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  bottomNavStyle: {
+    elevation: 8,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 1.41,
+  },
+});

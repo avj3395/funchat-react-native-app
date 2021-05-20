@@ -57,6 +57,8 @@ const Message = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#fff",
+    marginBottom: 70,
   },
 });
 export default Message;
